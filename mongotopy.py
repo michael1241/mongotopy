@@ -4,7 +4,7 @@ import os
 import subprocess
 import json
 
-seconds = '1'
+seconds = '10'
 filename = "mongodataforlukhas"
 
 def reformat(data):
@@ -20,7 +20,6 @@ def reformat(data):
 def saveMongoData():
     mongocall = subprocess.Popen(['mongotop', '--json', '--rowcount=1', seconds], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     stdout,stderr = mongocall.communicate()
-
     mongodata = reformat(json.loads(stdout.decode("utf-8")))
 
     with open('tmpFile', 'w') as f:
