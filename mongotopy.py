@@ -24,7 +24,7 @@ def saveMongoData():
     mongodata = reformat(json.loads(stdout.decode("utf-8")))
 
     with open(prefix + '/' + 'tmpFile', 'w') as f:
-        f.write(str(mongodata))
+        f.write(json.dumps(mongodata))
 
     os.rename(prefix + '/' + 'tmpFile', prefix + '/' + filename)
 
