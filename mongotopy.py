@@ -26,7 +26,7 @@ def saveMongoData():
     with open(prefix + '/' + 'tmpFile', 'w') as f:
         f.write(str(mongodata))
 
-    os.rename(prefix + '/' + 'tmpFile', prefix + filename)
+    os.rename(prefix + '/' + 'tmpFile', prefix + '/' + filename)
 
 while True:
     saveMongoData()
