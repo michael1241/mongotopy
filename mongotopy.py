@@ -23,10 +23,10 @@ def saveMongoData():
     stdout,stderr = mongocall.communicate()
     mongodata = reformat(json.loads(stdout.decode("utf-8")))
 
-    with open(prefix + 'tmpFile', 'w') as f:
+    with open(prefix + '/' + 'tmpFile', 'w') as f:
         f.write(str(mongodata))
 
-    os.rename(prefix + 'tmpFile', prefix + filename)
+    os.rename(prefix + '/' + 'tmpFile', prefix + filename)
 
 while True:
     saveMongoData()
