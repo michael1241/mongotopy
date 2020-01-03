@@ -23,7 +23,7 @@ def saveMongoData():
     mongodata = reformat(json.loads(stdout.decode("utf-8")))
 
     with open('tmpFile', 'w') as f:
-        f.write(str(mongodata))
+        f.write(json.dumps(mongodata))
 
     os.rename('tmpFile', filename)
 
