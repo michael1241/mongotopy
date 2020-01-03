@@ -5,7 +5,8 @@ import subprocess
 import json
 
 seconds = '10'
-filename = "mongodataforlukhas"
+prefix = "/var/tmp"
+filename = "mongotopy.json"
 
 def reformat(data):
     formatted = []
@@ -22,10 +23,10 @@ def saveMongoData():
     stdout,stderr = mongocall.communicate()
     mongodata = reformat(json.loads(stdout.decode("utf-8")))
 
-    with open('tmpFile', 'w') as f:
+    with open(prefix + 'tmpFile', 'w') as f:
         f.write(str(mongodata))
 
-    os.rename('tmpFile', filename)
+    os.rename(prefix + 'tmpFile', prefix + filename)
 
 while True:
     saveMongoData()
