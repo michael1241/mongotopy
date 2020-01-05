@@ -1,0 +1,11 @@
+[Unit]
+Description=Runs mongotopy in a loop to get JSON data for Telegraf
+After=network.target mongodb.service
+
+[Service]
+ExecStart=/home/mongotopy/mongotopy.py
+User=telegraf
+Group=telegraf
+
+[Install]
+WantedBy=multi-user.target
