@@ -4,7 +4,7 @@ import os
 import subprocess
 import json
 
-seconds = '10'
+seconds = '60'
 prefix = "/var/tmp"
 filename = "mongotopy.json"
 
