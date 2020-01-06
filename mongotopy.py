@@ -19,7 +19,7 @@ def reformat(data):
     return formatted
 
 def saveMongoData():
-    mongocall = subprocess.Popen(['mongotop', '--json', '--rowcount=1', seconds], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    mongocall = subprocess.Popen(['mongotop', '--host=localhost', '--json', '--rowcount=1', seconds], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     stdout,stderr = mongocall.communicate()
     mongodata = reformat(json.loads(stdout.decode("utf-8")))
 
