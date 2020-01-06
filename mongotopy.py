@@ -15,7 +15,8 @@ def reformat(data):
         database, coll = dbcoll.split(".",1)
         for op in ["read", "write"]:
             for field in ["time", "count"]:
-                formatted.append({"database":database, "coll":coll, "op":op, "field": field, "value":data[dbcoll][op][field]})
+                if data[dbcoll][op][field]:
+                    formatted.append({"database":database, "coll":coll, "op":op, "field": field, "value":data[dbcoll][op][field]})
     return formatted
 
 def saveMongoData():
