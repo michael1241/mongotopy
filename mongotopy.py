@@ -4,6 +4,7 @@ import os
 import subprocess
 import json
 import sys
+import time
 
 seconds = '60'
 prefix = "/var/tmp"
@@ -35,4 +36,5 @@ while True:
         saveMongoData()
     except Exception as e:
         sys.stderr.write(e)
+        time.sleep(3*60)
 
