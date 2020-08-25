@@ -3,6 +3,7 @@
 import os
 import subprocess
 import json
+import sys
 
 seconds = '60'
 prefix = "/var/tmp"
@@ -30,4 +31,8 @@ def saveMongoData():
     os.rename(prefix + '/' + 'tmpFile', prefix + '/' + filename)
 
 while True:
-    saveMongoData()
+    try:
+        saveMongoData()
+    except Exception as e:
+        sys.stderr.write(e)
+
