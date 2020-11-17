@@ -35,6 +35,6 @@ while True:
     try:
         saveMongoData()
     except Exception as e:
-        sys.stderr.write(e)
+        print(e, file=sys.stderr)
         time.sleep(3*60)
 
